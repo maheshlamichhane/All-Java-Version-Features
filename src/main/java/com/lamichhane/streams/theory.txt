@@ -1,0 +1,138 @@
+What is a Stream??
+-> Like lambdas and functional interfaces, streams were another new addition in Java 8.
+-> A stream is a sequence of data that can be processed with operations.
+-> Streams are not another way of organising data, like an array or a Collection. Streams do not hold
+data; streams are all about processing data efficiently.
+-> While streams make code more concise, their big advantage is that streams, by using a pipeline,
+can, in certain situations, greatly improve the efficiency of data processing.
+-> The real power of streams comes from the multiple intermediate operations you can perform on the
+stream.
+-> A stream pipeline consists of the operations that run on a stream to produce a result.
+-> There are 3 parts to a stream pipeline.
+i. Source -> where the stream comes from e.g array,collection or file.
+ii. Intermediate operations -> transforms the stream into another one. There can as few or as
+many as required.
+iii. Terminal operations -> required to start the whole process and produces the result. streams
+can only be used once i.e streams are no longer usable after a terminal operation completed(re-
+generate the stream if necessary).
+
+-> filter() is an intermediate operation and as such can filter the stream and pass on the
+filtered stream to the next operation.
+-> count() and forEach() are both terminal operations that end the stream.
+-> The pipeline operations are the way in which we specify how and in what order we want the data
+in the source manipulated. Remember, streams don't hold any data.
+
+
+Streams are lazy
+-> The principle of "lazy" evaluation is that you get what you need only when you need it. For
+example if you were displaying 10,000 records to a user, the principle of lazy evaluation would be
+ to retrieve 50 and while the user is viewing these, retrieve another 50 in the background.
+ -> "Eager" evaluation would be to retrieve all 10,000 records in one go.
+ -> With regard to streams, this means that nothing happens until the terminal operation occurs.
+ -> The pipeline specifies what operations we want to performed( on the source) and in which order.
+ -> This enables the JDK to reduce operations whenever possible.
+ -> For example, why run an operation on a piece of data if the operation is not requried:
+    * we have found the data element we were looking for.
+    * we may have a limit set on the number of elements we want to operate on.
+
+
+Creating a Streams:->
+
+i. From array
+-> Arrays.stream() can be used to stream an array
+Double[] numbers = {1.1,2.2,3.3};
+Stream<Double> stream1 = Arrays.stream(numbers)
+long n = stream1.count();
+System.out.println("Number of elements: "+n);
+
+ii. From collections
+List<String> animalList = Arrays.asList("cat","dog","sheep");
+Stream<String> streamAnimals = animalList.stream();
+System.out.println("Number of elements: "+streamAnimals.count());
+
+iii. From map
+Map<String,Integer> namesToAges = new HashMap<>();
+namesToAges.put("Mike",22);
+namesToAges.put("Mary",24);
+namesToAges.put("Alice",31);
+System.out.println("Number of entries: "+namesToAges.entrySet().stream().count());
+
+iv. Creating a Stream with Stream.of()
+Stream<Integer> streamI = Stream.of(1,2,3);
+System.out.println(streamI.count());
+
+v. Creating a Stream from a file
+-> The Files.lines() method can be used to stream a file. It provides on line at a time from the
+file as a data element in the stream.
+public static Stream<String> lines(Path path) throws IOException
+-> To process the data from the stream, we use the Stream interfaces forEach() method, which is
+a terminal operation.
+-> Similar to the forEach() for collections, it takes a Consumer, which enables us to process each
+line from the file.
+
+vi. Creating a Infinite Stream
+Stream<Integer> infStream = Stream.generate(() -> {
+    return (int) (Math.random() * 10);
+});
+infStream.forEach(System.out::println);
+
+
+Terminal Operations:
+-> Terminal operations can be performed without any intermediate operations but not the
+other way around.
+-> Reductions are a special type of terminal operation where all of the contents of the stream
+are combined into a single primitive or Object(Collection).
+-> We will have a look at the most common ones over the coming slides. Note that the comments
+in the code are very important.
+    * count(),min(),max()
+    * findAny(),findFirst()
+    * anyMatch(),allMatch(),noneMatch()
+    * forEach()
+    * reduce()
+    * collect()
+
+
+ Intermediate Operations:
+ -> Unlike a terminal operation, an intermediate operation produces a stream as a result.
+    * filter()
+    * distinct()
+    * limit()
+    * map()
+        -> map() creates a one to one mapping between elements in the stream and elements in the
+        next stage of the stream.
+        -> map() is for transforming data.
+    * flatMap()
+        -> flatMap() takes each element in the stream. e.g Stream<List<String>> and makes any
+            elements it contains top-level element in a single stream.
+    * sorted()
+        -> sorted() returns a stream with the elements sorted.
+        -> just like sorting arrays, java uses natural ordering unless we provide a comparator.
+
+
+
+Primitive Streams
+-> As opposed to Stream<T> e.g Stream<Integer>,Stream<Double> and Stream<Long>; java actually
+provides other stream classes that you can use to work with primitives:
+  * IntStream -> for primitive types int,short,byte and char
+  * DoubleStream -> for primitive types double and float
+  * LongStream -> for primitive type long
+
+
+Optionals:
+-> Think of an Optional as a box that may or may not be empty.
+-> Before Java 8, programmers would return null instead of Optional. Returning an Optional is now
+a clear way for the API to state that there might not be a value in there(and that the programmer
+must deal with that).
+-> In addition to Optional<T>, there are Optionals for the primitive types:
+   * OptionalDouble,OptionalInt and OptionalLong
+
+
+Parallel Streams:
+-> All of the streams thus far have been sequential streams i.e the streams have processed
+the data one element at a time.
+-> Parallel streams can process elements in a stream concurrently. i.e at the same time.
+-> Java achieves this by splitting the stream up into sub-streams and then the pipeline
+operations are performed on the sub-stream concurrently.
+-> To make stream paralle, we can use the parallel() or parallelStream() methods.
+-> parallel() is available in Stream<T>.
+-> parallelStream() is defined in the Collection<E> interface.
