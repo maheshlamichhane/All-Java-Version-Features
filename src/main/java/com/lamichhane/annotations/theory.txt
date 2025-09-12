@@ -1,0 +1,23 @@
+Annotations
+-> Metadata is information about information.
+-> Annotations, via metadata,enable us to add value to our code.
+-> We can annotate to classes,methods variables etc.
+-> Though options,when used they must be used correctly.
+-> Annotations operate much like interfaces. In fact, their origins are in interfaces. Their
+elements look like abstract methods. This will be clearer when we look at examples.
+-> Annotation names are case sensitive;however, it is common practise to start the name with an
+Uppercase letter.
+-> Like interfaces, annotations can be applied to unrelated classes.
+
+-> @Target limits the types that the annotation can be applied to.
+-> The types are specified as an array of ElementType enum values.
+ElementType vaues               Scope
+TYPE                            Interfaces,enums,classes,annotations.
+METHOD                          Method declarations
+PARAMETER                       Constructor and method parameters
+FIELD                           Instance and static variables
+CONSTRUCTOR                     Constructor declarations
+LOCAL_VARIABLE                  Local variables
+ANNOTATION_TYPE                 Annotations
+TYPE_USE                        Anywhere there is a java data type. This includes where types are
+                                used e.g object creation with new
