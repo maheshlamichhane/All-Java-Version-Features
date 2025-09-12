@@ -1,0 +1,34 @@
+Secure Coding in Java SE Application
+-> Develop code that mitigates security threats such as denial of service,code injection,
+input validation and ensure data integrity.
+-> Secure resource access including filesystem,manage policies and execute privileged code.
+
+Ensuring Data Integrity
+* Accessibility
+    -> limit access as much as possible - "principle of least privilege"
+    -> instance variables/methods should be private.
+* Restrict extensibility
+    -> prevent subclassing by marking the class as final.
+
+-> Immutable objects are objects that cannot be changed after creation.
+-> They are secure objects and use the following guidelines:
+    * Do not provide any "setter" methods.
+    * Make all the fields private and final.
+    * Prevent subclassing
+        - make the class final
+        - make the constructor private and provide a public static factory method e.g createNewInstance
+    * Instance fields
+        - immutable types e.g String,ok
+        -> mutable types e.g StringBuilder, do NOt share references. i.e use 'defensive copying' and
+            'advanced encapsulation'.
+
+
+SQL Injection:
+-> where user input retrieves unexpected results.
+-> protection provided by PreparedStatement with bind variables.
+
+Command Injection:
+-> where operating system commands are used to retrieve unexprected results.
+-> protection provided via input validation using a whitelist and or security policies.
+-> applying together provides "defence in depth"
+
