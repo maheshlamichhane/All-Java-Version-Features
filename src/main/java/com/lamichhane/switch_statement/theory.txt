@@ -1,0 +1,8 @@
+Pattern Matching switch statements:
+-> The switch statement has undergone several changes over the years.
+-> switch expression were introduced as a "preview features" in java 12 and became permanent
+in java 14.
+    * a "preview feature" is a feature that is designed and implemented but not yet permanent
+    (and may never be); it allows a lrge developer audience to test out the feture before
+    comitting to it.
+-> yield statement introduced in Java 13 to support switch expressions.
