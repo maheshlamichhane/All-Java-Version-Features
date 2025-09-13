@@ -1,0 +1,63 @@
+Unnamed Classes and Instance Main Methods:
+-> Java supports both "programming in the small" (variables,methods,control flow etc...) and
+"programming in the large" (classes,interfaces,packages,modules etc).
+-> The goal is to focus on the "programming in the small" by reducing ceremony/scaffolding for
+those learning the language.
+-> Constructs such as classes, access modifiers such as public and keywords such as static
+relate to "programming in large" and should only be encountered when required.
+-> In effect, make Java easier to learn. To this end, JEP 445 enables learners to write their first
+ programs without needing to understand language features designed for large programs.
+ -> Basic programs in a concise manner.
+ public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println("Hello World!");
+    }
+ }
+
+Instance Main Methods
+class HelloWorld{
+    void main(){
+        System.out.println("Hello World!");
+    }
+}
+-> no need for static,public or a String[] parameters.
+-> If you have both the traditional public static void main(String args[]) and the instance main(),
+the traditional version takes precedence.
+
+
+Unnamed Classes:
+void main(){
+    System.out.println("Hello World!");
+}
+-> Unnamed classes:
+    * extend from Object and cannot implement an interface.
+    * are final and reside in the unnamed package.
+    * their .class name on the hard disk depends on the filename - for example, if the above
+    code is in HelloWorld.java,HelloWorld.class is create on the hard disk.
+    * are exactly like normal classes except that an unnamed class has only one constructor -
+    the default no-args constructor provided by the compiler.
+    * it is an error to explicitly code a constructor, even a no-args constructor.
+    * the this keyword is still valid.
+    * as a code cannot refer to an unnamed class by name,instance of an unnamed class cannot be
+    constructed directly.
+    * therefore such classes are useful for standalone programs or as an entry-point to a program.
+    * as a result, unnamed classes must have a main() method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
