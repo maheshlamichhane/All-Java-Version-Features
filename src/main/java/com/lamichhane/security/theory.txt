@@ -32,3 +32,37 @@ Command Injection:
 -> protection provided via input validation using a whitelist and or security policies.
 -> applying together provides "defence in depth"
 
+
+Security Policies:
+-> Can be used in addition to or instead of, a whitelist to prevent command injection attacks.
+-> If both are applied then this creates a layered approach called "defence in depth".
+
+grant{
+    permission java.io.FilePermission
+        "c:\\The Farm\\HR\\Staff\\Joe Bloggs.txt","read";
+};
+-> Be careful that the policy obeys the "principle of least privilege".
+-> In other words, if your program only needs to read a file,then it should only have read
+permission and not have write access.
+
+
+Denial of Service Attack(dos):
+-> A denial of service attack is where one or more request are made with the purpose of
+disrupting services.
+-> This can be accomplished in a number of ways.
+    * leaking resources: always use try with resources to ensure you do not leak resources(by
+    not closing them)
+    * working with extremely large files - check the file size.
+    * inclusion attacks - where a file contains several other files e.g "zip bomb";
+
+
+Guidelines for confedential information:
+-> Confendential information includes passwords and personal details such as address, date of
+birth,salary and account balance.
+-> obviously, sensitive data should never be output to the screen, logged or end up in an exception
+stack trace
+-> Data in memroy must be protected also:
+    * use char[] instead of Strings.
+    * set confidential object references to null as soon as you are done with it - makes it
+    immediately eligible for garbage collection.
+
