@@ -1,0 +1,63 @@
+Sequenced Collections
+-> Sequenced Collections establish new interfaces for collections with a defined encounter
+order.
+
+Motivation
+-> regarding defined encounter order,Java's collections framework is neither straightforward
+or consistent.
+-> for example, List and Dequeue define an encounter order but their common supertype,Collection
+does not.
+-> Set does not define an encounter order, and neither does its subtype hashset. but other
+subtypes do, such as sortedset(sorted) and linkedhashset(insertion-order).
+-> Without interfaces to define them, operations related to encounter order are implemented
+inconsistently.
+-> even though many implementation support getting the first or last element ech collection defines
+its own way.
+
+List            list.get(0)                     list.get(list.size()-1)
+Deque           deque.getFirst()                deque.getLast()
+SortedSet       sortedSet.first()               sortedSet.last()
+LinkedHashSet   linkedHashSet.iterator.next()   // miising
+
+-> Iterating the elements in a collection from first to last is fine.
+   for example: enhanced-for loop, use an iterator or stream()
+-> However, iterating in reverse order is a different matter.
+    * NavigableSet provides a descendingSet()
+    * Deque provides descendingIterator()
+    * List provides a ListIterator
+    * LinkedHashSet provides no support(one must copy its elements into another collection)
+
+-> new interfaces are defined for sequenced collections, sequenced sets and sequenced maps.
+-> APIs are defined for accessing first/last elemnts and also for processing elmens in
+reverse order.
+-> All of the methods in the interfaces have default implementations.
+Collection -> SequencedCollection -> SequenceSet -> SortedSet,LinkedHashSet
+Collection -> SequencedCollection -> List
+Collection -> SequencedCollection -> Deque
+Map -> SequencedMap -> Sorted Map,LinkedHashMap
+
+-> Method of sequenced colleciton interface
+SequencedCollection<E> reversed();
+void addFirst(E);
+void addLast(E);
+E getFirst();
+E getLast();
+E removeFirst();
+E removeLast();
+
+-> methods of sequenceset
+SequenceSet<E> reversed();
+
+-> methods of sequencemap
+SequencedMap<K,V> reversed();
+SequencedSet<K> sequencedKeySet();
+SequencedCollection<V> sequencedValues();
+SequencedSet<Entry<K,V>> sequencedEntrySet();
+V putFirst(K,V);
+V putLast(K,V);
+
+//methods promoted from NavigableMap
+Entry<K,V> firstEntry();
+Entry<K,V> lastEntry();
+Entry<K,V> pollFirstEntry();
+Entry<K,V> pollLastEntry();
