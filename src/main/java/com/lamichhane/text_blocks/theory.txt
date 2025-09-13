@@ -1,0 +1,15 @@
+Text Blocks
+-> A text block is a String object and as a result, shares the same properties as String objects
+(immutable and interned).
+    * you can call String methods on a text block
+
+-> A text block begins with three double-quote characters followed by newline. i.e ""
+    * text blocks cannot be put on one line
+    * the text of a text block cannot follow the """
+-> Example
+String tbName = """
+             SEAN KENNEDY""";
+
+-> In String literals embedded quotes must be escaped. This is not the case with text blocks.
+-> Depending on where you place the closing delimeter,determines whether or not you have a
+closing.
