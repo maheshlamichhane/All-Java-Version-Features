@@ -1,0 +1,15 @@
+Unnamed variables and patterns:
+-> Unnamed variables and unnamed patterns were introduced in java 21 and finalised in java 22.
+-> Both are denoted with the underscore character.
+-> The goal here is that in situations where variables are declared with no intention to use
+them, we can now make the intent of their non-use explicit.
+-> This makes the code cleaner,more readable and more maintainable.
+-> Unnamed variables apply to local variables:
+    * local variable declarations
+    * headers in basic/enhanced for loops
+    * try with resources
+    * exception parameters in catch clauses
+    * lambda parameters in lambda expressions.
+-> Unnamed variable do not apply to instance variables.
+-> Declaring a variable that is never used is very common in code whoose side effect is very
+important.
