@@ -1,0 +1,20 @@
+Type Pattern
+-> In Java 16, instanceof was extended to take a type pattern and perform pattern matching.
+This simplified the instanceof-and-cast idiom, resulting in more concise and less error-prone
+code.
+-> old pre-java 16 instanceof-and-cast idiom
+if(obj instanceof String){
+    String s = (String) obj;
+    System.out.println(s.toUppercase());
+}
+-> new post java 16 idiom
+if(obj instance of String s){
+    System.out.println(s.toUppercase());
+}
+-> As there is no casting with type patterns, the style is more declarative.
+
+
+Pattern Matching
+-> Pattern matching is done at runtime.
+-> If the pattern matches then instanceof expression is true and the pattern variable 's' now
+refers to whatever 'obj' refers to.
