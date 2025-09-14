@@ -1,0 +1,15 @@
+Markdown
+-> HTML is a powerful and standardised markup language consumed by web browsers since the
+mid 90's.
+-> However, as HTML is tedious to write and hard to read, it is much less popular as markup
+manually produced by humans.
+-> In addition, many new developers are not fluent in HTML.
+-> Markdown is a popular markup language that is easy to read/write and easily transformed into
+HTML.
+-> Invented in 2004 by John Gruber what distinguishes Markdown from other lightweight markup
+syntaxes, is its readability.
+    * The overriding design goal for markdown's formatting syntax is to make it as readable as
+    possible.
+-> Gruber's canonical description of Markdowns syntax is not unambigious and has led to differing
+output from various processors.
+-> Conveniently, Markdown allows the use of HTML as well.
