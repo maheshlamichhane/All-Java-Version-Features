@@ -1,0 +1,37 @@
+Predicate:
+-> A Predicate<T> is a functional interface in the java.util.function package that represents a boolean-valued
+function of one argument.
+-> It is often used to test conditions (i.e., return true or false based on input).
+
+@FunctionalInterface
+public interface Predicate<T> {
+    boolean test(T t);
+}
+
+When to Use Predicate:
+-> Filtering collections or streams
+-> Conditional checks
+-> Validations
+-> Search conditions
+
+Common Methods in Predicate:
+Method	                            Description
+test(T t)	                        Tests the condition
+and(Predicate other)	            Combines two predicates with AND
+or(Predicate other)	                Combines two predicates with OR
+negate()	                        Negates the current predicate
+isEqual(Object target)	            Returns a predicate that checks object equality
+
+
+Bi-Predicate:
+-> A BiPredicate<T, U> is a functional interface in the java.util.function package.
+-> It represents a boolean-valued function that takes two arguments.
+-> Think of it as a Predicate, but instead of working with one input, it works with two.
+
+@FunctionalInterface
+public interface BiPredicate<T, U> {
+    boolean test(T t, U u);
+}
+
+
+
