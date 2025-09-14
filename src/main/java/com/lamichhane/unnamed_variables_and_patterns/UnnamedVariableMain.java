@@ -14,26 +14,26 @@ public class UnnamedVariableMain {
             System.out.println("Performing a side-effect");
         }
 
-        for(String _ : data){
-            System.out.println("Performing a side-effect");
-        }
+//        for(String _ : data){
+//            System.out.println("Performing a side-effect");
+//        }
 
         List<String> names = List.of("April","Brendan");
         names.forEach(name -> System.out.println("Side effect..."));
-        names.forEach(_ -> System.out.println("Side effect..."));
-        IntStream.range(0,5).forEach(_ -> System.out.println("Repeating action!"));
+//        names.forEach(_ -> System.out.println("Side effect..."));
+//        IntStream.range(0,5).forEach(_ -> System.out.println("Repeating action!"));
 
-        try(BufferedReader _ = new BufferedReader(new FileReader("example.txt"))){
-            System.out.println("File opened successfully");
-        }
-        catch (Exception e){
-            System.out.println("Error reading file");
-        }
+//        try(BufferedReader _ = new BufferedReader(new FileReader("example.txt"))){
+//            System.out.println("File opened successfully");
+//        }
+//        catch (Exception e){
+//            System.out.println("Error reading file");
+//        }
 
-        switch(new String("sjlfkdsj")){
-            case String _ -> System.out.println("its a string");
-            case null,default -> System.out.println("Something else");
-        }
+//        switch(new String("sjlfkdsj")){
+//            case String _ -> System.out.println("its a string");
+//            case null,default -> System.out.println("Something else");
+//        }
 
 
     }

@@ -1,0 +1,33 @@
+Lambda Expression:
+-> A lambda expression is a concise way to represent an anonymous function (i.e., a function without a name).
+-> lets you pass behavior as data, which is essential for functional programming.
+-> Introduced in Java 8, lambda expressions are typically used to implement functional interfaces.
+
+Syntax
+(parameters) -> expression
+
+Example:
+Runnable r = () -> System.out.println("Hello World");
+
+// 2. One parameter, no return
+Consumer<String> printer = s -> System.out.println(s);
+
+// 3. Two parameters, with return
+BiFunction<Integer, Integer> sum = (a, b) -> a + b;
+
+Why Use Lambda Expressions?
+-> Less boilerplate code
+-> Enables functional-style programming
+-> Useful in streams, collections, event handling, etc.
+-> Works well with functional interfaces
+
+When to Use:
+Lambda expressions are typically used when:
+-> You want to pass a short behavior (function) as a parameter
+-> You’re implementing a functional interface
+-> You’re using Streams API, Collections API, or Concurrency APIs
+
+Rules and Notes
+-> A lambda can only be used where a functional interface is expected.
+-> You can omit parameter types (Java infers them).
+-> If the lambda body has multiple lines, use curly braces {} and add a return if needed.
