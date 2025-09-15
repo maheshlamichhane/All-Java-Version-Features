@@ -1,0 +1,20 @@
+What is a Functional Interface?
+-> A Functional Interface is an interface that contains only one abstract method. It can have any number of default
+or static methods but only one abstract method.
+
+Key Characteristics:
+-> Marked with the @FunctionalInterface annotation (optional, but helps catch errors).
+-> Can be used as the target type for a lambda expression or method reference.
+
+@FunctionalInterface
+interface Function {
+    int apply(T a, T b);
+}
+
+Function add = (a, b) -> a + b;
+System.out.println(add.apply(5, 3));  // Output: 8
+
+What is BiFunction in Java?
+-> BiFunction<T, U, R> is a predefined functional interface in Java (from the java.util.function package) that
+represents a function which takes two arguments of types T and U and returns a result.
+
