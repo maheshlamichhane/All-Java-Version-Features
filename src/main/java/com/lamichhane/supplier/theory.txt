@@ -1,0 +1,24 @@
+Supplier:
+-> The Supplier<T> is a predefined functional interface from java.util.function package introduced in Java 8.
+
+Purpose:
+-> It supplies a result of type T without taking any input.
+-> Think of it like a value generator, factory, or lazy initializer.
+
+T get();
+
+Real-World Use Cases for Supplier:
+-> Fetching system properties or current time
+-> Supplying default values
+-> Lazy initialization
+-> Random number generation
+-> Configuration loading
+
+
+Primitive Variants of Supplier:
+-> Java provides specialized versions of Supplier for primitive types to avoid boxing/unboxing overhead:
+
+Interface	        Returns	    Input
+IntSupplier	        int	        none
+LongSupplier	    long	    none
+DoubleSupplier	    double	    none
