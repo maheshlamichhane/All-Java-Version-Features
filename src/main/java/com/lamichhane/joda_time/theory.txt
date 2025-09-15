@@ -1,0 +1,29 @@
+Joda Time API:
+-> Joda-Time is an open-source Java library developed to provide a better, more consistent, and more user-friendly
+date and time API than the older java.util.Date and java.util.Calendar classes.
+
+Why Was Joda-Time Created?
+Before Java 8 java.util.Date and Calendar were poorly designed.They were mutable, not thread-safe, and confusing
+(e.g., months start at 0)
+
+They lacked useful features like:
+-> Formatting/parsing
+-> Time zones handling
+
+Duration calculations
+So Joda-Time was created to:
+-> Make date-time handling easier, clearer, and less error-prone
+-> Add support for immutable, thread-safe, and fluent API design
+
+Key Joda-Time Classes:
+
+Class	            Purpose
+DateTime	        Represents date and time
+LocalDate	        Date without time
+LocalTime	        Time without date
+LocalDateTime	    Date + time, no timezone
+Period	            Represents a duration in human terms
+Duration	        Fixed duration in milliseconds
+Interval	        Time interval with start & end
+DateTimeZone	    Time zone handling
+Formatter	        Formatting and parsing dates
