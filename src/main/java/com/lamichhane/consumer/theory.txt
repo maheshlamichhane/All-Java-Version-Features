@@ -1,0 +1,29 @@
+Consumer:
+-> Consumer<T> is a predefined functional interface in the java.util.function package introduced in Java 8.
+-> It represents an operation that accepts a single input argument and returns no result.
+
+Functional Method
+void accept(T t);
+-> Takes one argument of type T
+-> Returns nothing (void)
+-> Typically used for performing side-effects (like printing, logging, saving, etc.)
+
+When to Use Consumer:-> You want to perform an action on an input, but don’t need to return anything.
+
+Examples:
+-> Printing to console
+-> Logging
+-> Updating UI
+-> Saving to database
+
+
+Variants of Consumer
+
+Java also provides some variations of Consumer:
+
+Interface	        Description
+Consumer<T>	        Takes 1 input, returns nothing
+BiConsumer<T, U>	Takes 2 inputs, returns nothing
+IntConsumer	        Takes an int, returns nothing
+LongConsumer	    Takes a long, returns nothing
+DoubleConsumer	    Takes a double, returns nothing

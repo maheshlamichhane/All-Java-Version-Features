@@ -8,5 +8,6 @@ public class CountWhiteSpaceMain {
         String name = "My name is mahesh";
         Function<String,Integer> function = s -> s.length() - s.replaceAll(" ","").length();
         System.out.println(function.apply(name));
+
     }
 }
